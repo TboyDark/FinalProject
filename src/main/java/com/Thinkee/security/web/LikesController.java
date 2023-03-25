@@ -49,7 +49,7 @@ public class LikesController {
                 likes.setUserId(user.getId());
                 likes.setPostId(id);
                 Likes newLike = likesRepository.save(likes);
-                return ResponseEntity.ok(newLike);
+                return ResponseEntity.status(HttpStatus.CREATED).body(newLike);
             } else {
                 Map<String, String> response = new HashMap<>();
                 response.put("error", "Could not put like, User profile is private.");

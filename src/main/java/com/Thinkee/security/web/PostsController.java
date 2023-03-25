@@ -45,7 +45,7 @@ public class PostsController {
             posts.setUserId(user.getId());            
             posts.setTimestamp(new Date());            
             Posts savedPost = postsRepository.save(posts);
-            return ResponseEntity.ok(savedPost);
+            return ResponseEntity.status(HttpStatus.CREATED).body(savedPost);
 
         } catch (Exception e) {
             e.printStackTrace();

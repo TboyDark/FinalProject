@@ -35,7 +35,7 @@ public class ProfileSettingsController {
             User user = (User) authentication.getPrincipal();
             profileSettings.setUserId(user.getId());            
             ProfileSettings settings = profileSettingsRepository.save(profileSettings);
-            return ResponseEntity.ok(settings);
+            return ResponseEntity.status(HttpStatus.CREATED).body(settings);
         } catch (Exception e) {
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();

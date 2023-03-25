@@ -48,7 +48,7 @@ public class CommentsController {
                 comment.setPostId(id);
                 comment.setUserId(user.getId());
                 Comments createdComment = commentsRepository.save(comment);
-                return ResponseEntity.ok(createdComment);
+                return ResponseEntity.status(HttpStatus.CREATED).body(createdComment);
             } else {
                 Map<String, String> response = new HashMap<>();
                 response.put("error", "Could not post comment, User profile is private.");
