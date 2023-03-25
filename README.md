@@ -54,6 +54,9 @@ if your user is inside the db, you wil get a response with a token in a json dat
 Now for every request you make for the API i created, is suggested to create a new token and paste it in the 
 Authorization -> Bearer token -> paste the token in the box on the right.
 ![](screenshots/token.png?raw=true "token screenshot")
+The token should work for 24 hours, but you never know.
+Note that every token gnerated, the previous will be revoked, so in you use a revoked token, you will not get
+access to the APIS.
 
 ## Now i will show you the routes for the API and the needed JSON Data body:
 - ### Posts
@@ -178,7 +181,7 @@ Remember that with these settings, only the users with the profile setting **"PU
 
 - ### Logout
 
-To logout just type this URL:
+To logout (GET):
 ``` bash
 http://localhost:8080/api/v1/auth/logout
 ```
